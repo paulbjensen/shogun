@@ -2,7 +2,6 @@ class window.StateManager
   constructor: (@domId) ->
     @currentState = null
     @states = {}
-    @html   = jQuery @domId
   
   addState: (domClass, render) ->
     @states[domClass] = render
@@ -15,3 +14,6 @@ class window.StateManager
     else
       @states[state] data
       jQuery("#{@domId} .#{state}").hide().fadeIn 'slow'
+
+  html: (newHtml) ->
+    jQuery(@domId).html(newHtml)

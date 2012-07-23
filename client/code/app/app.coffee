@@ -15,10 +15,10 @@ module.exports =
 
   init: ->
 
-    window.contentState = new StateManager '#content'
-    contentState.addState 'homepage', -> jQuery("#content").html ss.tmpl.homepage.r()
-    contentState.addState 'project', (data) -> jQuery("#content").html ss.tmpl["project"].render data
-
+    # Define a page area called content, and setup 2 states it can have: 'homepage' and 'content' 
+    contentState = new StateManager '#content'
+    contentState.addState 'homepage', -> contentState.html ss.tmpl.homepage.r()
+    contentState.addState 'project', (data) -> contentState.html ss.tmpl["project"].render data
 
     contentState.setState 'homepage'
 
@@ -41,9 +41,6 @@ module.exports =
             # # TODO - scope this in the RPC, so that people can't hack which user the project is created for.
             ss.rpc 'project.create', {name: "Your project", userId: response.user._id}, (response2) ->
               contentState.setState 'project', {username: response.user.username, name: response2.project.name}
-
-            
-
       false
 
 
