@@ -1,5 +1,11 @@
-http  = require 'http'
-ss    = require 'socketstream'
+http            = require 'http'
+global.ss       = require 'socketstream'
+global.config   = require './server/config.coffee'
+db              = require './server/db.coffee'
+
+# Controllers, a way of sharing common logic between RPC and REST APIs
+global.userController     = require "#{__dirname}/server/controllers/user.coffee"
+global.projectController  = require "#{__dirname}/server/controllers/project.coffee"
 
 # Define a single-page client
 ss.client.define 'main',
@@ -23,7 +29,7 @@ ss.client.packAssets() if ss.env is 'production'
 
 # Start web server
 server = http.Server ss.http.middleware
-server.listen 3000
+server.listen config[ss.env].port
 
 # Start SocketStream
 ss.start server

@@ -1,7 +1,13 @@
 Shogun
 ======
 
-An agile tool
+A different agile tool
+
+Dependencies
+---
+
+- Node.js (0.8+)
+- MongoDB (2.0+)
 
 Installation
 ---
@@ -11,6 +17,7 @@ Installation
 Usage
 ---
 
+    mongod &
     coffee app.coffee
 
 Tests
@@ -22,7 +29,7 @@ Tests
 License & Credits
 ---
 
-©2012 Paul Jensen. Shogun is licensed under the MIT License.
+© 2012 Paul Jensen. Shogun is licensed under the MIT License.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
